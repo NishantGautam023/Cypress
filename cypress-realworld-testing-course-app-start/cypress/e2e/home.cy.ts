@@ -3,8 +3,8 @@ describe("Home Page", () => {
     cy.visit("http://localhost:3000/");
   })
   it("the h1 contains correct text", () => {
-    cy.get("[data-test='hero-heading']").contains("Testing Next.js Applications with Cypress");
-
+    // cy.get("[data-test='hero-heading']").contains("Testing Next.js Applications with Cypress");
+      cy.getByData("hero-heading").contains("Testing Next.js Applications with Cypress")
   })
   it("the features of home page are correact", () => {
     cy.get("dt").eq(0).contains("4 Courses")
