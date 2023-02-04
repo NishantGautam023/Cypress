@@ -14,4 +14,12 @@ describe("Testing the Newsleeter Suscription", () => {
         cy.getByData("submit-button").click();
         cy.getByData("success-message").should("not.exist")
     })
+
+    it("User is Already suscribed", () => {
+        cy.getByData("email-input").type("john@example.com");
+        cy.getByData("submit-button").click()
+        cy.getByData("server-error-message").should("exist").contains("Error: john@example.com already exists. Please use a different email address.")
+
+    })
 })
+
